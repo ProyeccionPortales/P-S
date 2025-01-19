@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image List and Upload</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-image: url(https://insiderlatam.com/wp-content/uploads/2022/12/Cinepolis-e1670521752278.jpeg);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+        }
+        .image-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .image-item {
+            width: 150px;
+            height: 150px;
+            overflow: hidden;
+            border: 1px solid #ccc;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .image-item img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        .room-list {
+            margin-top: 20px;
+        }
+        .room-item {
+            margin: 20px 0;
+        }
+        .room-item h3 {
+            margin: 0;
+        }
+        .section {
+            margin-top: 10px;
+        }
+        .section h4 {
+            margin: 0 0 5px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Image List and Upload</h1>
+
+    <h2>Rooms</h2>
+    <div class="room-list" id="room-list">
+        <!-- Sala 1 -->
+        <div class="room-item" id="room1">
+            <h3>Sala 1</h3>
+            <div class="section">
+                <h4>Antes</h4>
+                <form class="room-upload-form">
+                    <input type="file" accept="image/*" onchange="previewImage(event, 'room1-before')">
+                    <button type="button" onclick="uploadImage('room1-before')">Upload Antes</button>
+                </form>
+                <div class="image-list" id="room1-before"></div>
+            </div>
+            <div class="section">
+                <h4>Después</h4>
+                <form class="room-upload-form">
+                    <input type="file" accept="image/*" onchange="previewImage(event, 'room1-after')">
+                    <button type="button" onclick="uploadImage('room1-after')">Upload Después</button>
+                </form>
+                <div class="image-list" id="room1-after"></div>
+            </div>
+        </div>
+
+        <!-- Sala 2 -->
+        <div class="room-item" id="room2">
+            <h3>Sala 2</h3>
+            <div class="section">
+                <h4>Antes</h4>
+                <form class="room-upload-form">
+                    <input type="file" accept="image/*" onchange="previewImage(event, 'room2-before')">
+                    <button type="button" onclick="uploadImage('room2-before')">Upload Antes</button>
+                </form>
+                <div class="image-list" id="room2-before"></div>
+            </div>
+            <div class="section">
+                <h4>Después</h4>
+                <form class="room-upload-form">
+                    <input type="file" accept="image/*" onchange="previewImage(event, 'room2-after')">
+                    <button type="button" onclick="uploadImage('room2-after')">Upload Después</button>
+                </form>
+                <div class="image-list" id="room2-after"></div>
+            </div>
+        </div>
+
+        <!-- Sala 3 -->
+        <div class="room-item" id="room3">
+            <h3>Sala 3</h3>
+            <div class="section">
+                <h4>Antes</h4>
+                <form class="room-upload-form">
+                    <input type="file" accept="image/*" onchange="previewImage(event, 'room3-before')">
+                    <button type="button" onclick="uploadImage('room3-before')">Upload Antes</button>
+                </form>
+                <div class="image-list" id="room3-before"></div>
+            </div>
+            <div class="section">
+                <h4>Después</h4>
+                <form class="room-upload-form">
+                    <input type="file" accept="image/*" onchange="previewImage(event, 'room3-after')">
+                    <button type="button" onclick="uploadImage('room3-after')">Upload Después</button>
+                </form>
+                <div class="image-list" id="room3-after"></div>
+            </div>
+        </div>
+
+        <!-- Sala 4 -->
+        <div class="room-item" id="room4">
+            <h3>Sala 4</h3>
+            <div class="section">
+                <h4>Antes</h4>
+                <form class="room-upload-form">
+                    <input type="file" accept="image/*" onchange="previewImage(event, 'room4-before')">
+                    <button type="button" onclick="uploadImage('room4-before')">Upload Antes</button>
+                </form>
+                <div class="image-list" id="room4-before"></div>
+            </div>
+            <div class="section">
+                <h4>Después</h4>
+                <form class="room-upload-form">
+                    <input type="file" accept="image/*" onchange="previewImage(event, 'room4-after')">
+                    <button type="button" onclick="uploadImage('room4-after')">Upload Después</button>
+                </form>
+                <div class="image-list" id="room4-after"></div>
+            </div>
+        </div>
+
+        <!-- Sala 5 -->
+        <div class="room-item" id="room5">
+            <h3>Sala 5</h3>
+            <div class="section">
+                <h4>Antes</h4>
+                <form class="room-upload-form">
+                    <input type="file" accept="image/*" onchange="previewImage(event, 'room5-before')">
+                    <button type="button" onclick="uploadImage('room5-before')">Upload Antes</button>
+                </form>
+                <div class="image-list" id="room5-before"></div>
+            </div>
+            <div class="section">
+                <h4>Después</h4>
+                <form class="room-upload-form">
+                    <input type="file" accept="image/*" onchange="previewImage(event, 'room5-after')">
+                    <button type="button" onclick="uploadImage('room5-after')">Upload Después</button>
+                </form>
+                <div class="image-list" id="room5-after"></div>
+            </div>
+        </div>
+
+        <!-- Sala 6 -->
+        <div class="room-item" id="room6">
+            <h3>Sala 6</h3>
+            <div class="section">
+                <h4>Antes</h4>
+                <form class="room-upload-form">
+                    <input type="file" accept="image/*" onchange="previewImage(event, 'room6-before')">
+                    <button type="button" onclick="uploadImage('room6-before')">Upload Antes</button>
+                </form>
+                <div class="image-list" id="room6-before"></div>
+            </div>
+            <div class="section">
+                <h4>Después</h4>
+                <form class="room-upload-form">
+                    <input type="file" accept="image/*" onchange="previewImage(event, 'room6-after')">
+                    <button type="button" onclick="uploadImage('room6-after')">Upload Después</button>
+                </form>
+                <div class="image-list" id="room6-after"></div>
+            </div>
+        </div>
+
+        <!-- Sala 7 -->
+        <div class="room-item" id="room7">
+            <h3>Sala 7</h3>
+            <div class="section">
+                <h4>Antes</h4>
+                <form class="room-upload-form">
+                    <input type="file" accept="image/*" onchange="previewImage(event, 'room7-before')">
+                    <button type="button" onclick="uploadImage('room7-before')">Upload Antes</button>
+                </form>
+                <div class="image-list" id="room7-before"></div>
+            </div>
+            <div class="section">
+                <h4>Después</h4>
+                <form class="room-upload-form">
+                    <input type="file" accept="image/*" onchange="previewImage(event, 'room7-after')">
+                    <button type="button" onclick="uploadImage('room7-after')">Upload Después</button>
+                </form>
+                <div class="image-list" id="room7-after"></div>
+            </div>
+        </div>
+
+        <!-- Sala 8 -->
+        <div class="room-item" id="room8">
+            <h3>Sala 8</h3>
+            <div class="section">
+                <h4>Antes</h4>
+                <form class="room-upload-form">
+                    <input type="file" accept="image/*" onchange="previewImage(event, 'room8-before')">
+                    <button type="button" onclick="uploadImage('room8-before')">Upload Antes</button>
+                </form>
+                <div class="image-list" id="room8-before"></div>
+            </div>
+            <div class="section">
+                <h4>Después</h4>
+                <form class="room-upload-form">
+                    <input type="file" accept="image/*" onchange="previewImage(event, 'room8-after')">
+                    <button type="button" onclick="uploadImage('room8-after')">Upload Después</button>
+                </form>
+                <div class="image-list" id="room8-after"></div>
+            </div>
+        </div>
+
+        <!-- Sala 9 -->
+        <div class="room-item" id="room9">
+            <h3>Sala 9</h3>
+            <div class="section">
+                <h4>Antes</h4>
+                <form class="room-upload-form">
+                    <input type="file" accept="image/*" onchange="previewImage(event, 'room9-before')">
+                    <button type="button" onclick="uploadImage('room9-before')">Upload Antes</button>
+                </form>
+                <div class="image-list" id="room9-before"></div>
+            </div>
+            <div class="section">
+                <h4>Después</h4>
+                <form class="room-upload-form">
+                    <input type="file" accept="image/*" onchange="previewImage(event, 'room9-after')">
+                    <button type="button" onclick="uploadImage('room9-after')">Upload Después</button>
+                </form>
+                <div class="image-list" id="room9-after"></div>
+            </div>
+        </div>
+
+        <!-- Sala 10 -->
+        <div class="room-item" id="room10">
+            <h3>Sala 10</h3>
+            <div class="section">
+                <h4>Antes</h4>
+                <form class="room-upload-form">
+                    <input type="file" accept="image/*" onchange="previewImage(event, 'room10-before')">
+                    <button type="button" onclick="uploadImage('room10-before')">Upload Antes</button>
+                </form>
+                <div class="image-list" id="room10-before"></div>
+            </div>
+            <div class="section">
+                <h4>Después</h4>
+                <form class="room-upload-form">
+                    <input type="file" accept="image/*" onchange="previewImage(event, 'room10-after')">
+                    <button type="button" onclick="uploadImage('room10-after')">Upload Después</button>
+                </form>
+                <div class="image-list" id="room10-after"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Función para mostrar la imagen seleccionada y guardarla en localStorage
+        function previewImage(event, room) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+            
+            reader.onload = function () {
+                const imageUrl = reader.result;
+                const imageContainer = document.getElementById(room);
+                imageContainer.innerHTML = `<div class="image-item"><img src="${imageUrl}" alt="Imagen" /></div>`;
+                
+                // Guardar la imagen en localStorage para que persista después de la recarga
+                localStorage.setItem(room, imageUrl);
+            };
+            
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // Función para cargar las imágenes almacenadas en localStorage
+        function loadImagesFromLocalStorage() {
+            const roomIds = [
+                'room1-before', 'room1-after', 'room2-before', 'room2-after',
+                'room3-before', 'room3-after', 'room4-before', 'room4-after',
+                'room5-before', 'room5-after', 'room6-before', 'room6-after',
+                'room7-before', 'room7-after', 'room8-before', 'room8-after',
+                'room9-before', 'room9-after', 'room10-before', 'room10-after'
+            ]; 
+
+            roomIds.forEach(room => {
+                const storedImage = localStorage.getItem(room);
+                if (storedImage) {
+                    const imageContainer = document.getElementById(room);
+                    imageContainer.innerHTML = `<div class="image-item"><img src="${storedImage}" alt="Imagen" /></div>`;
+                }
+            });
+        }
+
+        // Llamar a la función de carga de imágenes al cargar la página
+        window.onload = loadImagesFromLocalStorage;
+    </script>
+</body>
+</html>
